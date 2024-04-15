@@ -1,5 +1,13 @@
 {% extends "base.html" %}
 
+{% load static %}
+
+{% block 'head' %}
+
+    <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
+
+{% endblock 'head' %}
+
 {% block 'title' %}
     Cadastro
 {% endblock 'title' %}
@@ -15,17 +23,29 @@
                 <div class="cont-cadastro">
                     <br>
                     <br>
-                    <section>
-                        <img src="#" class="logo">
+                    <section class="cont-logo">
+                        <img src="{% static 'geral/img/logo.png' %}" class="logo">
                         <label class="text-logo">HEALING</label>
                     </section>
                     <hr>
 
-                    <form action="" method="POST">
+                    <form action="{% url 'cadastro' %}" method="POST">
+                        {% csrf_token %}
                         <h2 class="font-destaque1">Cadastre-se</h2>
+
+                        {% if messages %}
+                            <br>
+                            {% for message in messages %}
+                                <section class="alert {{message.tags}}">
+                                    {{message}}
+                                </section>
+                            {% endfor %}
+                        {% endif %}
+
                         <br>
                         <label>Username</label>
                         <input type="text" name="username" id="" class="form-control" placeholder="Username...">
+                        <br>
                         <label>Email</label>
                         <input type="text" name="email" id="" placeholder="email@email.com" class="form-control">
                         <br>
@@ -50,7 +70,7 @@
             </div>
 
             <div class="col-md bg-main d-flex justify-content-center align-items-center">
-                <img src="#">
+                <img src="{% static 'usuarios/img/ilustracao.png' %}">
             </div>
 
         </div>
@@ -58,3 +78,4 @@
     </div>
 
 {% endblock 'body' %}
+
