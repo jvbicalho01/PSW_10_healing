@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+{% block 'title' %}
+    Cadastro
+{% endblock 'title' %}
+
+{% block 'body' %}
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md d-flex justify-content-center">
+
+                <div class="cont-cadastro">
+                    <br>
+                    <br>
+                    <section>
+                        <img src="#" class="logo">
+                        <label class="text-logo">HEALING</label>
+                    </section>
+                    <hr>
+
+                    <form action="" method="POST">
+                        <h2 class="font-destaque1">Cadastre-se</h2>
+                        <br>
+                        <label>Username</label>
+                        <input type="text" name="username" id="" class="form-control" placeholder="Username...">
+                        <label>Email</label>
+                        <input type="text" name="email" id="" placeholder="email@email.com" class="form-control">
+                        <br>
+                        <div class="row">
+                            <div class="col-md">
+                                <label>Senha</label>
+                                <input type="password" name="senha" id="" placeholder="Digite sua senha..." class="form-control">
+                            </div>
+                            <div class="col-md">
+                                <label>Confirmar senha</label>
+                                <input type="password" name="confirmar_senha" id="" placeholder="Digite novamente sua senha..." class="form-control">
+                            </div>
+                        </div>
+                        <br>
+
+                        <input type="submit" value="Cadastrar" class="btn btn-success btn-dark-color">
+                        <a href="#" class="btn btn-dark-color-outline">Já possuo uma conta</a>
+                    </form>
+
+                </div>
+
+            </div>
+
+            <div class="col-md bg-main d-flex justify-content-center align-items-center">
+                <img src="#">
+            </div>
+
+        </div>
+
+    </div>
+
+{% endblock 'body' %}
