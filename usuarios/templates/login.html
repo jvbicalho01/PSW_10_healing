@@ -1,15 +1,12 @@
-{% extends "base.html" %}
-
+{% extends 'base.html' %}
 {% load static %}
 
 {% block 'head' %}
-
     <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
-
 {% endblock 'head' %}
 
 {% block 'title' %}
-    Cadastro
+    Login
 {% endblock 'title' %}
 
 {% block 'body' %}
@@ -21,6 +18,7 @@
             <div class="col-md d-flex justify-content-center">
 
                 <div class="cont-cadastro">
+
                     <br>
                     <br>
                     <section class="cont-logo">
@@ -29,10 +27,9 @@
                     </section>
                     <hr>
 
-                    <form action="{% url 'cadastro' %}" method="POST">
+                    <form action="#" method="POST">
                         {% csrf_token %}
-                        <h2 class="font-destaque1">Cadastre-se</h2>
-
+                        <h2 class="font-destaque1">Login</h2>
                         {% if messages %}
                             <br>
                             {% for message in messages %}
@@ -41,28 +38,15 @@
                                 </section>
                             {% endfor %}
                         {% endif %}
-
                         <br>
                         <label>Username</label>
                         <input type="text" name="username" id="" class="form-control" placeholder="Username...">
                         <br>
-                        <label>Email</label>
-                        <input type="text" name="email" id="" placeholder="email@email.com" class="form-control">
+                        <label>Senha</label>
+                        <input type="password" name="senha" id="" class="form-control" placeholder="Digite sua senha...">
                         <br>
-                        <div class="row">
-                            <div class="col-md">
-                                <label>Senha</label>
-                                <input type="password" name="senha" id="" placeholder="Digite sua senha..." class="form-control">
-                            </div>
-                            <div class="col-md">
-                                <label>Confirmar senha</label>
-                                <input type="password" name="confirmar_senha" id="" placeholder="Digite novamente sua senha..." class="form-control">
-                            </div>
-                        </div>
-                        <br>
-
-                        <input type="submit" value="Cadastrar" class="btn btn-success btn-dark-color">
-                        <a href="{% url 'login' %}" class="btn btn-dark-color-outline">Já possuo uma conta</a>
+                        <input type="submit" value="Logar" class="btn btn-success btn-dark-color">
+                        <a href="{% url 'cadastro' %}" class="btn btn-dark-color-outline">Não possuo uma conta</a>
                     </form>
 
                 </div>
@@ -70,7 +54,7 @@
             </div>
 
             <div class="col-md bg-main d-flex justify-content-center align-items-center">
-                <img src="{% static 'usuarios/img/ilustracao.png' %}">
+                <img src="{% static 'usuarios/img/ilustracao.png' %}"> 
             </div>
 
         </div>
