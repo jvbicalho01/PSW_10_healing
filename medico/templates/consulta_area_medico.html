@@ -99,7 +99,7 @@
             <div class="col-md">
                 <h3 style="font-weight: bold;">Documentos do paciente</h3>
                 
-                <form action="" method="POST" enctype="multipart/form-data">
+                <form action="{% url 'add-consulta' consulta.id %}" method="POST" enctype="multipart/form-data">
                     <input type="text" name="titulo" class="form-control" placeholder="Título...">
                     <br>
                     <input type="file" name="documento" class="form-control">
@@ -109,8 +109,15 @@
                 <hr>
                 <br>
 
+                {% for documento in documentos %}
+                    <p><a href="{{documento.documento.url}}" class="link documentos">
+                        <i class="bi bi-file-arrow-down"></i> {{documento.titulo}} - {{documento.consulta.data_aberta.data.year}}
+                    </a></p>
+                    <br>
+                {% endfor %}
+
                 <hr>
-                <a href="" class="btn btn-primary">Finalizar consulta</a>
+                <a href="{% url 'finalizar-consulta' consulta.id %}" class="btn btn-primary">Finalizar consulta</a>
             </div>
 
         </div>
